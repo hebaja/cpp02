@@ -1,7 +1,5 @@
-#include <cfloat>
 #include <cmath>
 #include <iostream>
-#include <ostream>
 #include "Fixed.hpp"
 
 const int Fixed::fractBits = 8; 

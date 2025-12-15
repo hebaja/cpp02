@@ -3,7 +3,7 @@
 Fixed	cross_point(Point a, Point b, Point c)
 {
 	return (Fixed((b.getX().toFloat() - a.getX().toFloat()) * (c.getY().toFloat() - a.getY().toFloat()) 
-			   - (b.getY().toFloat() - a.getY().toFloat()) * (c.getX().toFloat() - a.getX().toFloat())));
+			- (b.getY().toFloat() - a.getY().toFloat()) * (c.getX().toFloat() - a.getX().toFloat())));
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
