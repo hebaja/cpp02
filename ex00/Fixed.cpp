@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Fixed.hpp"
 
 const int Fixed::fractBits = 8; 

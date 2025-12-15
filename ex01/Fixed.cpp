@@ -19,7 +19,8 @@ Fixed::Fixed(const int n)
 Fixed::Fixed(const float n)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->fixedPoint = roundf(n * (1 << this->fractBits));
+	// * 1 -> 00000001 -> 1 00000000 --> 256 (if n == 2.5 -> 2.5*256 --> 640) -> (fixedPoint == 1010000000) --> 10.10000000
+	this->fixedPoint = roundf(n * (1 << this->fractBits)); 
 }
 
 Fixed::~Fixed()
@@ -27,10 +28,10 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other) : fixedPoint(other.fixedPoint)
+Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	// *this = other;
+	*this = other;
 }
 
 Fixed& Fixed::operator = (const Fixed &other)
@@ -54,6 +55,7 @@ void Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
+	// * 1 -> 00000001 -> 1 00000000 --> 256 (640 / 256 --> 2.5)
 	return (this->fixedPoint / (float)(1 << this->fractBits));
 }
 

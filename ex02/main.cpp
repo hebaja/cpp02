@@ -4,6 +4,18 @@
 int	main(void)
 {
 	{
+		Fixed	a;
+		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+		std::cout << a << std::endl;
+		std::cout << ++a << std::endl;
+		std::cout << a << std::endl;
+		std::cout << a++ << std::endl;
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << Fixed::max( a, b ) << std::endl;
+		return 0;
+	}
+	{
 		Fixed	a(10);
 		Fixed	b(10);
 		Fixed	c(7);
@@ -51,6 +63,7 @@ int	main(void)
 		std::cout << "Operator != (int) must be 0 -> " << (a != b) << std::endl;
 		std::cout << "Operator != (flo) must be 1 -> " << (e != g) << std::endl;
 		std::cout << "Operator != (flo) must be 0 -> " << (e != f) << std::endl;
+
 	}
 	{
 		Fixed	a(1.0f);
@@ -79,16 +92,6 @@ int	main(void)
 	{
 		Fixed	a(1.3f);
 		Fixed	b(1.2f);
-		Fixed	res;
-
-		res = Fixed::min(a, b);
-		std::cout << res << std::endl;
-		res = Fixed::max(a, b);
-		std::cout << res << std::endl;
-	}
-	{
-		Fixed	const a(1.3f);
-		Fixed	const b(1.2f);
 		Fixed	res;
 
 		res = Fixed::min(a, b);
